@@ -20,42 +20,54 @@
 
     <div id="app">
         <v-app>
+            <v-app-bar color="indigo-darken-3" density="comfortable" elevation="4">
+                <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
+                <v-app-bar-title>Tea Cards Collection</v-app-bar-title>
+            </v-app-bar>
+
+            <v-navigation-drawer v-model="openDrawer">
+                <v-list-item href="https://jingyi12333.github.io/codinginquiryproject4.github.io/">Home</v-list-item>
+                <v-list-item v-for="item in projects" :key="item.title" :href="item.url">
+                    {{ item.title }}
+                </v-list-item>
+            </v-navigation-drawer>
             <v-main>
-                <v-app>
-                    <v-main>
-                        <v-container>
-                            <v-row>
-                                <v-col col="4" v-for="item in collection" :key="item.name">
-
-
-                                    <v-card width="250" height="350" class="mx-auto"
-                                        color="purple-darken-1 elevation-12">
-                                        <v-card-title>
-                                            {{ item.name }}
-                                        </v-card-title>
-                                        <v-card-subtitle>
-                                            {{item.taste}}
-                                            {{item.smell}}
-
-                                        </v-card-subtitle>
-
-
-                                        <v-card-text>
-                                            {{ item.bio }}
-
-
-                                        </v-card-text>
-                                        <v-img :src="item.image" height="200" > </v-img>
 
 
 
 
-                                    </v-card>
-                                </v-col>
-                            </v-row>
-                        </v-container>
-                    </v-main>
-                </v-app>
+                <v-container>
+                    <v-row>
+                        <v-col col="4" v-for="item in collection" :key="item.name">
+
+
+                            <v-card width="250" height="350" class="mx-auto" color="purple-darken-1 elevation-12">
+                                <v-card-title>
+                                    {{ item.name }}
+                                </v-card-title>
+                                <v-card-subtitle>
+                                    {{item.taste}}
+                                    {{item.smell}}
+
+                                </v-card-subtitle>
+
+
+                                <v-card-text>
+                                    {{ item.bio }}
+
+
+                                </v-card-text>
+                                <v-img :src="item.image" height="200"> </v-img>
+
+
+
+
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                </v-container>
+
+
             </v-main>
         </v-app>
     </div>

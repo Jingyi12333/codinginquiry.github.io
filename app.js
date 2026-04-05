@@ -1,10 +1,41 @@
-const { createApp } = Vue;
+const { createApp,ref } = Vue;
 const { createVuetify } = Vuetify;
 const vuetify = createVuetify();
 
 
 const App = {
     setup() {
+        const projects = [
+      {
+        title: "Tea Card Collection",
+        description: "A card gallery featuring different teas, their tastes, smells, and short descriptions.",
+        whatILearned: "In this lab I practiced using JavaScript objects, arrays, and Vuetify cards to display a collection with images and text.",
+        image: "images/project1.png",
+        url: "https://jingyi12333.github.io/codinginquiryproject1.github.io/"
+      },
+      {
+        title: "Pet Grooming Game",
+        description: "An interactive point-and-click game where the player completes grooming actions in the correct order.",
+        whatILearned: "I learned about functions, conditional logic, and reactivity to handle changes in the user interface and validate user choices.",
+        image: "images/project2.png",
+        url: "https://jingyi12333.github.io/codinginquiryproject2.github.io/"
+      },
+      {
+        title: "Canada Immigration Dashboard",
+        description: "A data dashboard visualizing immigration trends and policy information using charts and tables.",
+        whatILearned: "I practiced using Vuetify components like Sparkline, Stepper, and Data Table to transform complex datasets into an interactive experience.",
+        image: "images/project3.png",
+        url: "https://jingyi12333.github.io/codinginquiryproject3.github.io/"
+      }
+    ];
+
+    const openDrawer = ref(false);
+
+    function toggleDrawer() {
+      openDrawer.value = !openDrawer.value;
+    }
+
+
         const collection = [
 
             {
@@ -57,7 +88,11 @@ const App = {
         ]
 
         return {
-            collection
+            collection,
+            projects,
+            openDrawer,
+            toggleDrawer
+
 
         }
     }
